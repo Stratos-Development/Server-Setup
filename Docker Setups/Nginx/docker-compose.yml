@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: tundradev
+    restart: unless-stopped
+    ports:
+      - 8321:80
+    volumes:
+      - nginx:/etc/nginx/
+      - files:/usr/share/nginx
+volumes:
+  nginx:
+  files:

@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  database:
+    image: 'postgres:latest'
+    ports:
+      - 15432:5432
+    environment:
+        POSTGRES_PASSWORD: "KbforUmuh9nd1BX3qAmyavER"
+    networks:
+      - postgres-network
+    volumes:
+      - db-data:/var/lib/postgresql/data/
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - 15433:80
+    environment:
+        POSTGRES_PASSWORD: "KbforUmuh9nd1BX3qAmyavER"
+        PGADMIN_DEFAULT_EMAIL: "a@a.com"
+        PGADMIN_DEFAULT_PASSWORD: "a"
+    depends_on:
+      - database
+    networks:
+      - postgres-network
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin/
+volumes:
+  db-data:
+  pgadmin-data:
+networks: 
+  postgres-network:
+    driver: bridge
