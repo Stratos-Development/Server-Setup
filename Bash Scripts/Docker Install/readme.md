@@ -1,5 +1,9 @@
 # How to install docker 
-
+## NEW
+You can now just do a simple one line to install docker
+```bash
+wget -q https://raw.githubusercontent.com/Stratos-Development/Server-Setup/main/Bash%20Scripts/Docker%20Install/docker.sh -O install.sh; sudo bash ./install.sh
+```
 1. Create the file and paste in the contents of docker.sh into it.
 ```bash
 nano docker.sh
